@@ -28,9 +28,11 @@ class UserManager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser, PermissionsMixin):
+    usurarioAdmin=1
+    usuarioCliente=2
     rol_choices = (
-        ('Arrendador', 'Arrendador'),
-        ('Arrendatario', 'Arrendatario'),
+        (usurarioAdmin, 'Arrendador'),
+        (usuarioCliente, 'Arrendatario'),
     )
     id = models.BigAutoField(primary_key=True)
     username = models.CharField('Username', max_length = 15, unique=True)
