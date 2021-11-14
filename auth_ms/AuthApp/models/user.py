@@ -1,9 +1,11 @@
 
+from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.contrib.auth.hashers import make_password
+from .rol import Rol
 
-class UserManager(BaseUserManager):
+class UserManager(BaseUserManager): ##user manager, hereda de baseUserManager
     def create_user(self, username, password=None):
         """
         Creates and saves a user with the given username and password.
@@ -28,18 +30,15 @@ class UserManager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser, PermissionsMixin):
-    usurarioAdmin=1
-    usuarioCliente=2
-    rol_choices = (
-        (usurarioAdmin, 'Arrendador'),
-        (usuarioCliente, 'Arrendatario'),
-    )
     id = models.BigAutoField(primary_key=True)
     username = models.CharField('Username', max_length = 15, unique=True)
     password = models.CharField('Password', max_length = 256)
-    rol = models.CharField('Rol', max_length=30, choices=rol_choices)
-    name = models.CharField('Name', max_length = 30)
+    name  = models.CharField('name', max_length = 30)
+    last_name = models.CharField('last_name', max_length=45,default ='')#Validar, requirio default
+    cedula = models.CharField('cedula',max_length=20,unique=True,default ='') #Validar, requirio default
+    create_time = models.DateTimeField('dateTime', default=datetime.now, blank=True)
     email = models.EmailField('Email', max_length = 100)
+    rol = models.ForeignKey(Rol,related_name='rol_Usuario', on_delete = models.CASCADE)
 
     def save(self, **kwargs):
         some_salt = 'mMUj0DrIK6vgtdIYepkIxN' 

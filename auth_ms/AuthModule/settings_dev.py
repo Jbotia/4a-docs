@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#5^ly&$kg#wraw88e0oe62183p=khfd&cz4nzcwq5!g6%(z#$v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -100,6 +100,9 @@ WSGI_APPLICATION = 'AuthModule.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+'''
+#DATABASE LOCAL DE PRUEBA
+'''
 DATABASES = {
     'default': {
         'ENGINE'    : 'django.db.backends.postgresql_psycopg2',
@@ -110,7 +113,6 @@ DATABASES = {
         'PORT'      : '5432',
     }
 }
-
 
 
 # Password validation
