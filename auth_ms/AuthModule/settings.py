@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#5^ly&$kg#wraw88e0oe62183p=khfd&cz4nzcwq5!g6%(z#$v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -103,10 +103,10 @@ WSGI_APPLICATION = 'AuthModule.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE'    : 'django.db.backends.postgresql_psycopg2',
-        'NAME'      : 'auth_ms',
-        'USER'      : 'postgres',
-        'PASSWORD'  : '123',
-        'HOST'      : 'localhost',
+        'NAME'      : 'd4iknpo2ulgugh',
+        'USER'      : 'qrgoeqfmasiztk',
+        'PASSWORD'  : '02c8c70a5c5012aef8ea6096d4cb7f719633a33025a4c5cdff1ef6be2a8cba33',
+        'HOST'      : 'ec2-18-214-176-16.compute-1.amazonaws.com',
         'PORT'      : '5432',
     }
 }
@@ -155,3 +155,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import django_heroku
+django_heroku.settings(locals())

@@ -18,7 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
             'create_time':user.create_time,
             'email':user.email,
             'rol':{
-                'name':rol.name,
+               'name':rol.name,
                 'description':rol.description,
             }
         }
